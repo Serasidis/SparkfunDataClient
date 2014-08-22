@@ -41,8 +41,6 @@ char sparkfunDataServer[] = "data.sparkfun.com";
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xAE, 0xCD };
 IPAddress ip(192, 168, 1, 250); //Your local IP
 
-#define RELAY 5 //Relay is connected on Arduino pin 5 (through tranzistor of course).
-
 // Initialize the Ethernet client.
 EthernetClient client;
 
@@ -60,9 +58,7 @@ String currentTemp;
 //----------------------------------------------------------------------
 void setup()
 {
-  pinMode(RELAY, OUTPUT);
-  delay(1000);
-  
+
   //Initiallize the serial port.
   Serial.begin(9600);
 
