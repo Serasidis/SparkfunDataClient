@@ -8,7 +8,7 @@ email: avrtsite@yahoo.gr
 
 This sketch uses the UIPEthernet library (ENC28J60 ethernet shield). You can use the W5100 ethernet shield just by changing the line:
 
-#include <UIPEthernet.h>
+[code]#include <UIPEthernet.h>[/code]
 to 
 #include <Ethernet.h>
  
