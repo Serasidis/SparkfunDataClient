@@ -23,10 +23,6 @@
       https://data.sparkfun.com/streams/WGGWNZLKGOFAzyLwLOzQ
       
       GET /input/WGGWNZLKGOFAzyLwLOzQ?private_key=XRRmzj9YR2iXzjnKn6zR&humidity=25.81&maxTemp=26.94&currentTemp=14.48
-      
-      uipethernet-conf.h file from UIPEthernet library has been modified. The line
-      '#define UIP_CONF_MAX_CONNECTIONS 4' has been replaced with '#define UIP_CONF_MAX_CONNECTIONS 1'
-      That means, only one TCP connection is allowed.
  */
 
 #include <SPI.h>
