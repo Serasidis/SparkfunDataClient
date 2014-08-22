@@ -14,9 +14,9 @@ to
  
 - Create your own data stream (https://data.sparkfun.com)
 - You can mark your data as public or private during the data stream creation.
-- Replace PUBLIC_KEY and PRIVATE_KEY with these sparkfun give you
-- Replace the dat names "humidity", "maxTemp" etc on sendToSparkfunDataServer() with these you
-  gave to sparkfun data stream creation.
+- Replace PUBLIC_KEY and PRIVATE_KEY with these sparkfun gave you
+- Replace the data names "humidity", "maxTemp" etc on sendToSparkfunDataServer() with these you
+  set to sparkfun data stream creation.
 - You can view online or download your data as CSV or JSON file via 
   
   ```https://data.sparkfun.com/streams/ + YOUR_PUBLIC_KEY```
