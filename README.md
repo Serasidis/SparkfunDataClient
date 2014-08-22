@@ -8,9 +8,9 @@ email: avrtsite@yahoo.gr
 
 This sketch uses the UIPEthernet library (ENC28J60 ethernet shield). You can use the W5100 ethernet shield just by changing the line:
 
-[code]#include <UIPEthernet.h>[/code]
-to 
-#include <Ethernet.h>
+```#include <UIPEthernet.h>```
+to
+```#include <Ethernet.h>```
  
 - Create your own data stream (https://data.sparkfun.com)
 - You can mark your data as public or private during the data stream creation.
