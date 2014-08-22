@@ -27,7 +27,3 @@ Send an example data stream with values 25.81, 26.94 and 14.48.
 View the example data stream on web browser
   https://data.sparkfun.com/streams/WGGWNZLKGOFAzyLwLOzQ
   
-*Note
-      uipethernet-conf.h file from UIPEthernet library has been modified. The line
-      '#define UIP_CONF_MAX_CONNECTIONS 4' has been replaced with '#define UIP_CONF_MAX_CONNECTIONS 1'
-      That means, only one TCP connection is allowed.
