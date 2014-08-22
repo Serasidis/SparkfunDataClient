@@ -3,8 +3,8 @@
    
    Created:     Vassilis Serasidis
    Date:        30 Jul 2014
-   Last update: 03 Aug 2014
-   Version:     1.00
+   Last update: 22 Aug 2014
+   Version:     1.01
    Home:        http://www.serasidis.gr
    email:       avrsite@yahoo.gr , info@serasidis.gr
    
@@ -39,7 +39,10 @@ char sparkfunDataServer[] = "data.sparkfun.com";
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xAE, 0xCD };
-IPAddress ip(192, 168, 1, 250); //Your local IP if fails DHCP.
+IPAddress ip(192, 168, 1, 250); //Your local IP if DHCP fails.
+IPAddress dnsServerIP(192, 168, 1, 1);
+IPAddress gateway(192, 168, 1, 1);
+IPAddress subnet(255, 255, 255, 0);
 
 // Initialize the Ethernet client.
 EthernetClient client;
@@ -65,9 +68,9 @@ void setup()
   // start the Ethernet connection:
   if (Ethernet.begin(mac) == 0)
   {
-    Serial.println("Failed to configure Ethernet using DHCP");
+  //  Serial.println("Failed to configure Ethernet using DHCP");
     // DHCP failed, so use a fixed IP address:
-    Ethernet.begin(mac, ip);
+    Ethernet.begin(mac, ip, dnsServerIP, gateway, subnet);
   }
   Serial.print("LocalIP:\t\t");
   Serial.println(Ethernet.localIP());
@@ -75,10 +78,8 @@ void setup()
   Serial.println(Ethernet.subnetMask());
   Serial.print("GatewayIP:\t\t");
   Serial.println(Ethernet.gatewayIP());
-  Serial.print("dnsServerIP:\t");
+  Serial.print("dnsServerIP:\t\t");
   Serial.println(Ethernet.dnsServerIP());
-  
-  timer1 = millis() + SPARKFUN_UPDATE_TIME;
 }
   
 //----------------------------------------------------------------------
