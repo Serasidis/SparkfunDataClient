@@ -130,6 +130,7 @@ void sendToSparkfunDataServer()
             {
                 char inData = client.read();
                 Serial.print(inData);
+                delay(1);
             }      
             Serial.println("\n");   
             client.stop(); //Disconnect the client from server.  
