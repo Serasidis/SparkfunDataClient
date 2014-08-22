@@ -32,7 +32,7 @@ char sparkfunDataServer[] = "data.sparkfun.com";
 #define PUBLIC_KEY  "WGGWNZLKGOFAzyLwLOzQ" //Your SparkFun public_key
 #define PRIVATE_KEY "XRRmzj9YR2iXzjnKn6zR" //Your SparkFun private_key
 
-#define SPARKFUN_UPDATE_TIME 12000         //Update SparkFun data server every 60000 ms (1 minute).
+#define SPARKFUN_UPDATE_TIME 60000         //Update SparkFun data server every 60000 ms (1 minute).
 
 #define TIMEOUT 1000 //1 second timout
 
@@ -130,7 +130,6 @@ void sendToSparkfunDataServer()
             {
                 char inData = client.read();
                 Serial.print(inData);
-                delay(1);
             }      
             Serial.println("\n");   
             client.stop(); //Disconnect the client from server.  
