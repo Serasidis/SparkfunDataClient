@@ -1,5 +1,5 @@
 /*
-   Telnet server and SparkFun data client (data.sparkfun.com). 
+   Arduino SparkFun data client (data.sparkfun.com). 
    
    Created:     Vassilis Serasidis
    Date:        30 Jul 2014
