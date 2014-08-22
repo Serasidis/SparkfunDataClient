@@ -22,7 +22,7 @@
       
       https://data.sparkfun.com/streams/WGGWNZLKGOFAzyLwLOzQ
       
-      GET /input/WGGWNZLKGOFAzyLwLOzQ?private_key=XRRmzj9YR2iXzjnKn6zR&humidity=25.81&maxTemp=26.94&currentTemp=14.48
+      GET /input/WGGWNZLKGOFAzyLwLOzQ?private_key=XRRmzj9YR2iXzjnKn6zR&humidity=25.81&maxTemp=26.94&nowTemp=14.48
  */
 
 #include <SPI.h>
