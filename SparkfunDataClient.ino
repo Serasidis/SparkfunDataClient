@@ -105,7 +105,7 @@ void sendToSparkfunDataServer()
             client.print("&maxTemp=");   // I don't use it. I add it as an example.
             //client.print(maxTemp);      
             client.println(random(0,40));    //Send a random number from 0-40 or ...
-            //client.print("&currentTemp="); //send the number stored in 'currentTemp' variable. Select only one.
+            //client.print("&nowTemp="); //send the number stored in 'currentTemp' variable. Select only one.
             client.println(currentTemp);
          
             delay(1000);
