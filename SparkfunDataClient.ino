@@ -1,5 +1,5 @@
 /*
-   Arduino SparkFun data client (data.sparkfun.com). 
+   Telnet server and SparkFun data client (data.sparkfun.com). 
    
    Created:     Vassilis Serasidis
    Date:        30 Jul 2014
@@ -32,14 +32,14 @@ char sparkfunDataServer[] = "data.sparkfun.com";
 #define PUBLIC_KEY  "WGGWNZLKGOFAzyLwLOzQ" //Your SparkFun public_key
 #define PRIVATE_KEY "XRRmzj9YR2iXzjnKn6zR" //Your SparkFun private_key
 
-#define SPARKFUN_UPDATE_TIME 60000         //Update SparkFun data server every 60000 ms (1 minute).
+#define SPARKFUN_UPDATE_TIME 12000         //Update SparkFun data server every 60000 ms (1 minute).
 
 #define TIMEOUT 1000 //1 second timout
 
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xAE, 0xCD };
-IPAddress ip(192, 168, 1, 250); //Your local IP
+IPAddress ip(192, 168, 1, 250); //Your local IP if fails DHCP.
 
 // Initialize the Ethernet client.
 EthernetClient client;
@@ -61,9 +61,24 @@ void setup()
 
   //Initiallize the serial port.
   Serial.begin(9600);
-
+  Serial.println("-= SparkFun data client =-\n");
   // start the Ethernet connection:
-  Ethernet.begin(mac, ip);
+  if (Ethernet.begin(mac) == 0)
+  {
+    Serial.println("Failed to configure Ethernet using DHCP");
+    // DHCP failed, so use a fixed IP address:
+    Ethernet.begin(mac, ip);
+  }
+  Serial.print("LocalIP:\t\t");
+  Serial.println(Ethernet.localIP());
+  Serial.print("SubnetMask:\t\t");
+  Serial.println(Ethernet.subnetMask());
+  Serial.print("GatewayIP:\t\t");
+  Serial.println(Ethernet.gatewayIP());
+  Serial.print("dnsServerIP:\t");
+  Serial.println(Ethernet.dnsServerIP());
+  
+  timer1 = millis() + SPARKFUN_UPDATE_TIME;
 }
   
 //----------------------------------------------------------------------
@@ -90,6 +105,7 @@ void sendToSparkfunDataServer()
         //if the client is connected to the server...
         if(client.connected())
         {
+            Serial.println("Sending data to SparkFun...\n");
             // send the HTTP PUT request:
             client.print("GET /input/");
             client.print(PUBLIC_KEY);
@@ -113,8 +129,9 @@ void sendToSparkfunDataServer()
             while(client.available() > 0)
             {
                 char inData = client.read();
-                Serial.println(inData);
-            }         
+                Serial.print(inData);
+            }      
+            Serial.println("\n");   
             client.stop(); //Disconnect the client from server.  
          }
      } 
