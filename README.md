@@ -2,9 +2,9 @@ SparkfunDataClient
 ==================
 Version: 1.00
 
-Author: Vassilis Serasidis
-Home: www.serasidis.gr
-email: avrtsite@yahoo.gr
+ Author: Vassilis Serasidis
+ Home: www.serasidis.gr
+ email: avrtsite@yahoo.gr
 
 This sketch uses the UIPEthernet library (ENC28J60 ethernet shield). You can use the W5100 ethernet shield just by changing the line:
 
