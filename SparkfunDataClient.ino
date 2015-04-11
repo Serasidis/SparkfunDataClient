@@ -121,7 +121,7 @@ void sendToSparkfunDataServer()
             client.println(random(0,40));    //Send a random number from 0-40 or ...
             //client.println(currentTemp);   //send the number stored in 'currentTemp' string. Select only one.
          
-            delay(1000);
+            delay(1000); //Give some time to Sparkfun server to send the response to ENC28J60 ethernet module.
             timer2 = millis();
             while((client.available() == 0)&&(millis() < timer2 + TIMEOUT)); //Wait here until server respond or timer2 expires. 
             
